@@ -9,10 +9,15 @@
 		<script type="text/javascript" src="js/bootstrap.js"></script>
 </head>
 <body>
-
+	<script>
+	function handleChange(input) {
+		if (input.value < 0) input.value = 0;
+		if (input.value > 100) input.value = 100;
+	}
+</script>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
     Starting quantity:  <input type="number" Name="Num1"><br>
-	Yearly interest (percentage): <input type="text" Name="Num2"><br>
+	Yearly interest (percentage): <input type="number" step="any" onchange="handleChange(this);" Name="Num2"><br>
     Number of years saving: <input type="number" Name="Num3"><p>
     <input type="Submit" value="Calculate">
     </form>
